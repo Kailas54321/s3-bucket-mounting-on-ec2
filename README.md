@@ -21,5 +21,12 @@ yum update all
     echo -e 'accesskey:secretaccesskey'   > /etc/passwd-s3fs
      sudo chmod 640 /etc/passwd-s3fs
      mkdir /mys3bucket
-
+     
+   #If bucket name withought dot(.) 
      s3fs bucket_name -o use_cache=/tmp -o allow_other -o uid=1001 -o mp_umask=002 -o multireq_max=5 /mys3bucket
+     
+     #If bucket name with dot(.)
+     s3fs your_bucketname /mys3bucket -o use_cache=/tmp -o allow_other -o uid=1001 -o mp_umask=002 -o multireq_max=5 -o use_path_request_style -o url=https://s3-{{aws_region}}.amazonaws.com
+
+     # To check mounting point 
+     # df -hT
