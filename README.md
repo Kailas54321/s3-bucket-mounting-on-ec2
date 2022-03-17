@@ -30,3 +30,5 @@ yum update all
 
      # To check mounting point 
      # df -hT
+     
+     --Kailas
